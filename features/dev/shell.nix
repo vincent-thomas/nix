@@ -18,9 +18,13 @@
       ];
     };
 
+    localVariables = {
+      HOME_MNGR_DIR = "$HOME/nix";
+    };
+
     shellAliases = {
       v = "nvim";
-      hms = "rm -f /home/vincent/.mozilla/firefox/vincent/search.json.mozlz4 && home-manager switch --flake ~/dotfiles/.config/home-manager";
+      hms = "rm -f /home/vincent/.mozilla/firefox/vincent/search.json.mozlz4 && . $HOME/nix/scripts/revision.sh";
       sudo = "doas";
     };
     initExtraFirst = builtins.readFile ../../dotfiles/.zshrc;

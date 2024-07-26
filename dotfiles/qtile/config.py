@@ -13,7 +13,6 @@ from core.configuration import mod1
 def start_deps():
     home = os.path.expanduser("~/.config/qtile/autostart.sh")
     subprocess.Popen([home])
-
 @hook.subscribe.client_new
 def assign_to_group(client):
     if client.name == "Spotify Premium":

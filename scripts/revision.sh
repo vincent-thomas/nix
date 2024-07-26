@@ -7,3 +7,4 @@ cd $HOME_MNGR_DIR
 git add .
 git commit
 home-manager switch --flake .
+git push

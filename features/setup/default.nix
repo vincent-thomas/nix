@@ -12,10 +12,6 @@
       enable = true;
       flavor = "macchiato";
     };
-    extraConfig = ''
-      include-file = ./bar.ini
-    '';
-
     enable = true;
     script = "polybar";
   };

@@ -30,6 +30,8 @@ in {
     enable = true;
     accent = catAccent;
     flavor = catTheme;
+    gnomeShellTheme = true;
+    icon.enable = true;
   };
 
   programs.rofi = {

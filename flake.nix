@@ -13,10 +13,10 @@
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nix-colors.url = "github:misterio77/nix-colors";
+    stylix.url = "github:danth/stylix";
   };
 
-  outputs = { nixpkgs, home-manager, ... }@inputs:
+  outputs = { nixpkgs, home-manager, stylix, ... }@inputs:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
@@ -26,7 +26,7 @@
 
         extraSpecialArgs = { inherit inputs; };
 
-        modules = [ ./home.nix ];
+        modules = [ stylix.homeManagerModules.stylix ./home.nix ];
       };
     };
 }

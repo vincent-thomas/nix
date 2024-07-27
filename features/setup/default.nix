@@ -13,7 +13,7 @@
       flavor = "macchiato";
     };
     extraConfig = ''
-      include-file = ~/.config/polybar/bar.ini
+      include-file = ./bar.ini
     '';
 
     enable = true;

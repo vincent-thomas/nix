@@ -1,5 +1,5 @@
 add_newline = false
-format = "[$time](black) [>>](bright-black) [$directory](blue) $character"
+format = "[$time](black) [>>](bright-black) $directory $character"
 palette = "catppuccin_macchiato"
 
 
@@ -9,7 +9,7 @@ success_symbol = "[λ](yellow)"
 
 [directory]
 disabled = false
-format = "[$path](cyan)"
+format = "[$path](blue)"
 
 [time]
 disabled = false

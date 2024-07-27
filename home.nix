@@ -26,6 +26,7 @@ in {
     };
   };
 
+  gtk.enable = true;
   gtk.catppuccin = {
     enable = true;
     accent = catAccent;

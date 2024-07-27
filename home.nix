@@ -1,7 +1,7 @@
 { config, pkgs, inputs, lib, builtins, ... }:
 let
-
   catTheme = "frappe";
+  catAccent = "blue";
 in {
 
   home.stateVersion = "23.11";
@@ -18,10 +18,18 @@ in {
   catppuccin = {
     enable = true;
     flavor = catTheme;
+    accent = catAccent;
     pointerCursor = {
       enable = true;
       flavor = catTheme;
+      accent = catAccent;
     };
+  };
+
+  gtk.catppuccin = {
+    enable = true;
+    accent = catAccent;
+    flavor = catTheme;
   };
 
   programs.rofi = {

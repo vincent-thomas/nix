@@ -1,12 +1,12 @@
 return {
   {
     "williamboman/mason.nvim",
-    dependencies = {
-      "frostplexx/mason-bridge.nvim",
-    },
+    -- dependencies = {
+    --   "frostplexx/mason-bridge.nvim",
+    -- },
     config = function()
       require("vt.config.mason").setup()
-      require("mason-bridge").setup()
+      -- require("mason-bridge").setup()
     end,
   },
   {
@@ -17,9 +17,9 @@ return {
       local conform = require("conform")
 
       conform.setup({
-        formatters_by_ft = require("mason-bridge").get_formatters(),
+        -- formatters_by_ft = require("mason-bridge").get_formatters(),
         format_on_save = {
-          lsp_fallback = false,
+          lsp_fallback = true,
           async = false,
           timeout_ms = 500,
         },

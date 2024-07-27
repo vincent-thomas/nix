@@ -9,8 +9,9 @@ return {
         "lua",
         "json",
         "toml",
-        "prisma",
+        -- "prisma",
         "markdown",
+        "nix"
       },
       highlight = {
         enable = false,

@@ -6,8 +6,13 @@
 
   home.file.".config/qtile".source = ../../dotfiles/qtile;
 
-  home.file.".config/polybar".source = ../../dotfiles/polybar;
+  # home.file.".config/polybar".source = ../../dotfiles/polybar;
   services.polybar = {
+    catppuccin = {
+      enable = true;
+      flavor = "macchiato";
+    };
+
     enable = true;
     script = "polybar";
   };

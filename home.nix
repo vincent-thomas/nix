@@ -1,6 +1,8 @@
 { config, pkgs, inputs, lib, builtins, ... }:
+let
 
-{
+  catTheme = "frappe";
+in {
 
   home.stateVersion = "23.11";
 
@@ -15,11 +17,15 @@
   programs.home-manager.enable = true;
   catppuccin = {
     enable = true;
-    flavor = "mocha";
+    flavor = catTheme;
     pointerCursor = {
       enable = true;
-      flavor = "mocha";
+      flavor = catTheme;
     };
+  };
+
+  programs.rofi = {
+    enable = true;
   };
   # stylix.enable = true;
   # stylix.image = pkgs.fetchurl {

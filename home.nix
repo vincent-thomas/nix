@@ -20,11 +20,12 @@
   };
   stylix.polarity = "dark";
   stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-macchiato.yaml";
-  # stylix.fonts = {
-    # monospace = {
-    #   name = "Jetbrains Mono Nerd Font";
-    # };
-  # };
+  stylix.fonts = {
+    monospace = {
+      package = pkgs.nerd-fonts;
+      name = "Jetbrains Mono Nerd Font";
+    };
+  };
 
   imports = [
     # inputs.nix-colors.homeManagerModules.default

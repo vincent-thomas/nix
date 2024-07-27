@@ -27,6 +27,14 @@
     };
   };
 
+  home.packages = [
+    pkgs.nerd-fonts
+  ];
+
+  fonts.fonts = [
+    pkgs.nerd-fonts
+  ];
+
   imports = [
     # inputs.nix-colors.homeManagerModules.default
     ./features/firefox

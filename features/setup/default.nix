@@ -8,10 +8,6 @@
 
   home.file.".config/polybar".source = ../../dotfiles/polybar;
   services.polybar = {
-    catppuccin = {
-      enable = true;
-      flavor = "macchiato";
-    };
     enable = true;
     script = "polybar";
   };

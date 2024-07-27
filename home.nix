@@ -26,15 +26,6 @@ in {
     };
   };
 
-  gtk.enable = true;
-  gtk.catppuccin = {
-    enable = true;
-    accent = catAccent;
-    flavor = catTheme;
-    gnomeShellTheme = true;
-    icon.enable = true;
-  };
-
   programs.rofi = {
     enable = true;
   };

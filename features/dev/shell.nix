@@ -3,6 +3,12 @@
 
   home.file.".config/starship.toml".source = ../../dotfiles/starship.toml;
 
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
+    enableZshIntegration = true;
+  };
+
   programs.starship = {
     enable = true;
     enableZshIntegration = true;
@@ -15,13 +21,6 @@
   programs.zsh = {
     enable = true;
     enableCompletion = true;
-    oh-my-zsh = {
-      enable = true;
-      plugins = [
-        "direnv"
-      ];
-    };
-
     localVariables = {
       HOME_MNGR_DIR = "$HOME/nix";
     };

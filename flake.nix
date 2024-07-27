@@ -13,7 +13,8 @@
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    stylix.url = "github:danth/stylix";
+    catppuccin.url = "github:catppuccin/nix";
+    # stylix.url = "github:danth/stylix";
   };
 
   outputs = { nixpkgs, home-manager, stylix, ... }@inputs:
@@ -26,7 +27,10 @@
 
         extraSpecialArgs = { inherit inputs; };
 
-        modules = [ stylix.homeManagerModules.stylix ./home.nix ];
+        modules = [
+          ./home.nix
+          catppuccin.homeManagerModules.catppuccin
+        ];
       };
     };
 }

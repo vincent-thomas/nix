@@ -15,10 +15,10 @@
   programs.home-manager.enable = true;
   catppuccin = {
     enable = true;
-    flavor = "macchiato";
+    flavor = "mocha";
     pointerCursor = {
       enable = true;
-      flavor = "macchiato";
+      flavor = "mocha";
     };
   };
   # stylix.enable = true;

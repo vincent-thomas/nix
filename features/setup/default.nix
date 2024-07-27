@@ -8,6 +8,7 @@
 
   home.file.".config/polybar".source = ../../dotfiles/polybar;
   services.polybar = {
+    catppuccin.enable = false;
     enable = true;
     script = "polybar";
   };

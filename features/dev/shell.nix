@@ -1,7 +1,7 @@
 { pkgs, inputs, ... }:
 {
 
-  home.file.".config/starship.toml".source = ../../dotfiles/starship.toml;
+  # home.file.".config/starship.toml".source = ../../dotfiles/starship.toml;
 
   programs.direnv = {
     enable = true;

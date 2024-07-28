@@ -17,7 +17,7 @@ screens = [
             mute_command="amixer set Master toggle"
         ),
         # widget.CurrentLayoutIcon(background=catppuccin_colors['surface0']),
-        # widget.CurrentLayout(),
+        widget.CurrentLayout(),
         widget.WindowName(),
 
         widget.Wlan(interface = "wlp4s0"),
@@ -25,7 +25,7 @@ screens = [
         widget.Clock(
             format = "%H:%M"
         ),
-        widget.StatusNotifier()
+        widget.Systray()
     ], size = 24, background=catppuccin_colors['base'], opacity = 1.0)
   )
 ]

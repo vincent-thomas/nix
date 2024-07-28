@@ -6,8 +6,8 @@ in {
 
   home.stateVersion = "23.11";
 
-  home.username = "vincent";
-  home.homeDirectory = "/home/vincent";
+  home.username = "vt";
+  home.homeDirectory = "/home/vt";
 
    home.sessionPath = [
     "$HOME/.nix-profile/bin" #binaries
@@ -15,6 +15,8 @@ in {
   ];
 
   home.file.".scripts".source = ./scripts;
+
+  nixpkgs.config.allowUnfree = true;
 
   programs.home-manager.enable = true;
   catppuccin = {
@@ -32,6 +34,5 @@ in {
     ./features/firefox
     ./features/dev
     ./features/setup
-    ./features/misc.nix
   ];
 }

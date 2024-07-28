@@ -17,18 +17,28 @@
     # stylix.url = "github:danth/stylix";
   };
 
-  outputs = { nixpkgs, home-manager, catppuccin, ... }@inputs:
+  outputs = { nixpkgs, home-manager, self, catppuccin, ... }@inputs:
     let
+      inherit (self) outputs;
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
+      hostname = "vt-pc";
+      username = "vt";
     in {
-      homeConfigurations."vincent" = home-manager.lib.homeManagerConfiguration {
+      nixosConfigurations.${hostname} = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs outputs;};
+        modules = [
+          ./nixos/configuration.nix
+          ./nixos/hardware-configuration.nix
+        ];
+      };
+      homeConfigurations.${username} = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
 
         extraSpecialArgs = { inherit inputs; };
 
         modules = [
-          ./home.nix
+          ./home
           catppuccin.homeManagerModules.catppuccin
         ];
       };

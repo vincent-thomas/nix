@@ -22,14 +22,13 @@
   programs.zsh = {
     enable = true;
     enableCompletion = true;
-    localVariables = {
+    sessionVariables = {
       HOME_MNGR_DIR = "$HOME/nix";
     };
 
     shellAliases = {
       v = "nvim";
       hms = "rm -f /home/vincent/.mozilla/firefox/vincent/search.json.mozlz4 && . revision";
-      sudo = "doas";
     };
     initExtraFirst = builtins.readFile ../../dotfiles/.zshrc;
   };

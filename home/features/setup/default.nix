@@ -6,11 +6,18 @@
 
   home.file.".config/qtile".source = ../../dotfiles/qtile;
 
-  home.file.".config/polybar".source = ../../dotfiles/polybar;
-  services.polybar = {
-    catppuccin.enable = false;
+  home.packages = with pkgs; [
+    nix-output-monitor
+    fastfetch
+    nitrogen
+  ];
+
+  programs.btop = {
     enable = true;
-    script = "polybar";
+    settings = {
+      # color_theme = "onedark";
+      theme_background = false;
+    };
   };
 
   programs.rofi = {

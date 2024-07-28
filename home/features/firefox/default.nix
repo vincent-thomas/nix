@@ -14,6 +14,7 @@
         sponsorblock
         darkreader
         tab-stash
+        onepassword-password-manager
       ];
       settings = {
         "browser.startup.homepage" = "about:home";

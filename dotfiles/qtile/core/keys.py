@@ -4,6 +4,8 @@ from core.configuration import mod1, mod2, terminal, browser, file_manager
 from utils.groups import GroupBuilder, create_group_keybindings
 from utils.applaunching import create_app_binds, SpawnLaunching
 
+from os import path
+
 keys = [
     Key([mod1], "h", lazy.layout.left(), desc="Move focus to left"),
     Key([mod1], "l", lazy.layout.right(), desc="Move focus to right"),
@@ -41,7 +43,7 @@ app_binds = [
     SpawnLaunching("e", file_manager),
     SpawnLaunching("t", terminal),
     SpawnLaunching("Return", "rofi -show drun -show-icons"),
-    SpawnLaunching("p", "vt-powertools"),
+    SpawnLaunching("p", path.expanduser("~/.scripts/vt-powertools")),
 ]
 
 keys.extend(create_app_binds(mod1, app_binds))

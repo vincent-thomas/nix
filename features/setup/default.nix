@@ -12,4 +12,8 @@
     enable = true;
     script = "polybar";
   };
+
+  programs.rofi = {
+    enable = true;
+  };
 }

@@ -28,7 +28,7 @@
 
     shellAliases = {
       v = "nvim";
-      hms = "rm -f /home/vincent/.mozilla/firefox/vincent/search.json.mozlz4 && . $HOME/nix/scripts/revision.sh";
+      hms = "rm -f /home/vincent/.mozilla/firefox/vincent/search.json.mozlz4 && . revision";
       sudo = "doas";
     };
     initExtraFirst = builtins.readFile ../../dotfiles/.zshrc;

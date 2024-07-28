@@ -1,12 +1,31 @@
 from libqtile import bar, widget
 from libqtile.config import Screen
 
+catppuccin_colors = {
+    "base": "#24273a",
+    "surface0": "#363a4f",
+}
 
 screens = [
   Screen(
-    bottom=bar.Bar([
-        widget.GroupBox(),
-        widget.CurrentLayout()
-    ], size = 24)
+    top=bar.Bar([
+        widget.GroupBox(
+
+        ),
+        widget.Volume(
+            fmt="     {}",
+            mute_command="amixer set Master toggle"
+        ),
+        # widget.CurrentLayoutIcon(background=catppuccin_colors['surface0']),
+        # widget.CurrentLayout(),
+        widget.WindowName(),
+
+        widget.Wlan(interface = "wlp4s0"),
+
+        widget.Clock(
+            format = "%H:%M"
+        ),
+        widget.StatusNotifier()
+    ], size = 24, background=catppuccin_colors['base'], opacity = 1.0)
   )
 ]

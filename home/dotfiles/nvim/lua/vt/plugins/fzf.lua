@@ -19,9 +19,14 @@ return {
         fzf.live_grep()
       end
 
+      local function code_actions()
+        fzf.lsp_code_actions()
+      end
+
       vim.keymap.set("n", "<leader>f", find_files)
       vim.keymap.set("n", "<leader>g", grep)
       vim.keymap.set("n", "<leader>e", fzf.lsp_document_diagnostics)
+      vim.keymap.set("n", "<leader>a", code_actions)
     end,
   },
 }

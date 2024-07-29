@@ -27,11 +27,11 @@ in {
     enable = true;
     flavor = catTheme;
     accent = catAccent;
-    pointerCursor = {
-      enable = true;
-      flavor = catTheme;
-      accent = catAccent;
-    };
+    # pointerCursor = {
+    #   enable = true;
+    #   flavor = catTheme;
+    #   accent = catAccent;
+    # };
   };
   xdg.userDirs.desktop = null;
 }

@@ -1,7 +1,7 @@
 { pkgs,  ... }:
 
 {
-  imports = [./ssh.nix];
+  imports = [./ssh.nix ./wayland.nix];
   home.file.".config/picom/picom-workaround.conf".source = ../../dotfiles/picom.conf;
   home.file.".vt/Wallpapers".source = ../../../static/wallpapers;
   services.picom = {
@@ -21,6 +21,6 @@
     nodejs_22
   ];
 
-  programs.rofi.enable = true;
+  # programs.rofi.enable = true;
   programs.btop.enable = true;
 }

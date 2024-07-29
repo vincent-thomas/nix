@@ -18,14 +18,14 @@
   outputs = { nixpkgs, home-manager, self, catppuccin, ... }@inputs:
     let
       inherit (self) outputs;
-      system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
-      hostname = "vt-pc";
+      pkgs = nixpkgs.legacyPackages."x86_64-linux";
       username = "vt";
     in {
-      nixosConfigurations.${hostname} = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs;};
-        modules = [ ./nixos ];
+      nixosConfigurations = {
+        vt-pc = nixpkgs.lib.nixosSystem {
+          specialArgs = {inherit inputs outputs;};
+          modules = [ ./hosts/vt-pc ];
+        };
       };
 
       homeConfigurations.${username} = home-manager.lib.homeManagerConfiguration {

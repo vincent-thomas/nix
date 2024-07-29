@@ -13,9 +13,8 @@ return
 
       vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, opts)
       vim.keymap.set("n", "<leader>h", vim.lsp.buf.hover, opts)
-      vim.keymap.set("n", "<leader>a", vim.lsp.buf.code_action, opts)
-      vim.keymap.set("n", "<leader>d", vim.lsp.buf.declaration, opts)
-      vim.keymap.set("n", "<leader>D", vim.lsp.buf.definition, opts)
+      vim.keymap.set("n", "<leader>D", vim.lsp.buf.declaration, opts)
+      vim.keymap.set("n", "<leader>d", vim.lsp.buf.definition, opts)
     end)
   end,
 }

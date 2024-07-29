@@ -1,4 +1,6 @@
 { pkgs, ... }: {
+
+  # XServer
   services.xserver = {
     enable = true;
     xkb = {
@@ -12,5 +14,17 @@
   };
 
   xdg.portal.enable = true;
-  # xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-gtk];
+
+  # Fonts
+  fonts.packages = with pkgs; [
+    (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+  ];
+
+  programs.thunar.enable = true;
+  users.users.vt.packages = with pkgs; [
+    localsend
+    todoist-electron
+    discord
+    polkit_gnome
+  ];
 }

@@ -27,6 +27,7 @@
       # TS/JS 
       typescript-language-server
 
+      # Markdown
       marksman
     ];
   };
@@ -54,6 +55,8 @@
     userEmail = "77443389+vincent-thomas@users.noreply.github.com";
     aliases = {
       st = "status";
+      cm = "commit -m";
+      a = "add";
     };
     extraConfig = {
       init = {

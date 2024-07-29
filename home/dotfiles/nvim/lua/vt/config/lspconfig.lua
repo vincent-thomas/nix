@@ -39,8 +39,6 @@ function M.setup()
   })
   lspconfig.rust_analyzer.setup({
     capabilities,
-    filetypes = { "rust" },
-    root_dir = util.root_pattern("Cargo.toml"),
     settings = {
       ["rust-analyzer"] = {
         check = {

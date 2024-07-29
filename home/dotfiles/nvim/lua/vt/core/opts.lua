@@ -30,3 +30,7 @@ vim.opt.shortmess = vim.opt.shortmess + {
   W = true, -- Do not show "written" in command line when writing
   I = true, -- Do not show intro message when starting Vim
 }
+
+vim.keymap.set('', "<leader>-", vim.cmd.split)
+vim.keymap.set('', "<leader>=", vim.cmd.vsplit)
+vim.keymap.set('', "<leader>w", ":w")

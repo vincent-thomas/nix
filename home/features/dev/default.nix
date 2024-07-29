@@ -9,12 +9,24 @@
     enable = true;
     defaultEditor = true;
     extraPackages = with pkgs; [
-      # LSPs
+      # Rust
       rust-analyzer
+      clippy
+
+      # Lua
       lua-language-server
+      stylua
+
+      # Nix
       nixd
+      nixpkgs-fmt
+
+      # Python
       pyright
+
+      # TS/JS 
       typescript-language-server
+
       marksman
     ];
   };

@@ -2,6 +2,11 @@ let
   catTheme = "frappe";
   catAccent = "blue";
 in {
+  imports = [
+    ./features/firefox
+    ./features/dev
+    ./features/setup
+  ];
 
   home.stateVersion = "23.11";
 
@@ -28,10 +33,5 @@ in {
       accent = catAccent;
     };
   };
-
-  imports = [
-    ./features/firefox
-    ./features/dev
-    ./features/setup
-  ];
+  xdg.userDirs.desktop = null;
 }

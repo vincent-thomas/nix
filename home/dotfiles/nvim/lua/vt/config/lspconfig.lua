@@ -1,14 +1,11 @@
 local lspconfig = require("lspconfig")
 local nvim_cmp_nvim_lsp = require("cmp_nvim_lsp")
+local util = require("lspconfig.util")
 
 local M = {}
 
 function M.setup()
   local capabilities = nvim_cmp_nvim_lsp.default_capabilities()
-
-  lspconfig.prismals.setup({
-    capabilities,
-  })
 
   lspconfig.tsserver.setup({
     capabilities,
@@ -41,6 +38,9 @@ function M.setup()
     },
   })
   lspconfig.rust_analyzer.setup({
+    capabilities,
+    filetypes = { "rust" },
+    root_dir = util.root_pattern("Cargo.toml"),
     settings = {
       ["rust-analyzer"] = {
         check = {

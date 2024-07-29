@@ -1,4 +1,3 @@
-{ pkgs, inputs, ... }:
 {
 
   home.file.".config/starship.toml".source = ../../dotfiles/starship.toml;
@@ -17,6 +16,7 @@
 
   programs.tmux = {
     enable = true;
+    extraConfig = builtins.readFile ../../dotfiles/tmux.conf;
   };
 
   programs.zsh = {
@@ -28,7 +28,7 @@
 
     shellAliases = {
       v = "nvim";
-      hms = "rm -f /home/vincent/.mozilla/firefox/vincent/search.json.mozlz4 && . revision";
+      hms = "rm -f /home/vincent/.mozilla/firefox/vincent/search.json.mozlz4 && revision";
     };
     initExtraFirst = builtins.readFile ../../dotfiles/.zshrc;
   };

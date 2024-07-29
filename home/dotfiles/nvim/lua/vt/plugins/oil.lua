@@ -8,9 +8,6 @@ return {
       default_file_explorer = true,
       columns = {
         "icon",
-        -- "permissions",
-        -- "size",
-        -- "mtime",
       },
       keymaps = {
         ["g?"] = "actions.show_help",
@@ -20,8 +17,6 @@ return {
         ["<C-l>"] = "actions.refresh",
         ["h"] = "actions.parent",
         ["_"] = "actions.open_cwd",
-        -- ["\\"] = "actions.cd",
-        -- ["~"] = { "actions.cd", opts = { scope = "tab" }, desc = ":tcd to the current oil directory" },
         ["gs"] = "actions.change_sort",
         ["t"] = "actions.open_external",
         ["."] = "actions.toggle_hidden",

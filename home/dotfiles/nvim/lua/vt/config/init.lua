@@ -1,3 +1,3 @@
-require("commands.telescope")
-require("commands.mason")
-require("commands.lspconfig")
+-- require("commands.telescope")
+-- require("commands.mason")
+-- require("commands.lspconfig")

@@ -10,7 +10,7 @@ screens = [
   Screen(
     top=bar.Bar([
         widget.GroupBox(
-
+          highlight_method = "line",
         ),
         widget.Volume(
             fmt="     {}",
@@ -20,6 +20,7 @@ screens = [
         widget.CurrentLayout(),
         widget.WindowName(),
 
+        widget.CapsNumLockIndicator(),
         widget.Wlan(interface = "wlp4s0"),
 
         widget.Clock(

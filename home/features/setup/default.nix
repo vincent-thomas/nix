@@ -1,7 +1,9 @@
-{ pkgs, inputs,  ... }:
+{ pkgs,  ... }:
 
 {
+  imports = [./ssh.nix];
   home.file.".config/picom/picom-workaround.conf".source = ../../dotfiles/picom.conf;
+  home.file."Wallpapers".source = ../../../static/wallpapers;
   services.picom.enable = true;
 
   home.file.".config/qtile".source = ../../dotfiles/qtile;
@@ -10,6 +12,8 @@
     nix-output-monitor
     fastfetch
     nitrogen
+    _1password
+    _1password-gui
   ];
 
   programs.btop = {

@@ -1,4 +1,3 @@
-{ config, pkgs, inputs, lib, builtins, ... }:
 let
   catTheme = "frappe";
   catAccent = "blue";
@@ -14,7 +13,7 @@ in {
     "$HOME/.nix-profile/share/applications" #.desktop files
   ];
 
-  home.file.".scripts".source = ./scripts;
+  home.file.".vt/scripts".source = ./scripts;
 
   nixpkgs.config.allowUnfree = true;
 

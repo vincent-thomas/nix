@@ -4,5 +4,5 @@ mod2 = "mod1"
 _gl_wrapper = "/home/vincent/.nix-profile/bin/nixGL"
 
 terminal = "kitty"
-browser = "/home/vincent/.nix-profile/bin/firefox"
+browser = "firefox"
 file_manager = "thunar"

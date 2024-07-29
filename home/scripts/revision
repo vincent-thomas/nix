@@ -7,5 +7,5 @@ fi
 cd $HOME_MNGR_DIR
 git add .
 git commit
-home-manager switch --flake .
+home-manager switch --flake . --impure
 git push

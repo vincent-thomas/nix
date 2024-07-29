@@ -22,6 +22,10 @@ function M.setup()
     capabilities,
   })
 
+  lspconfig.nixd.setup({
+    capabilities,
+  })
+
   lspconfig.lua_ls.setup({
     capabilities,
     settings = {

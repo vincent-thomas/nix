@@ -9,7 +9,6 @@ return {
         "lua",
         "json",
         "toml",
-        -- "prisma",
         "markdown",
         "nix"
       },

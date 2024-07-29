@@ -1,22 +1,6 @@
 return {
-  "itchyny/lightline.vim",
+  "nvim-lualine/lualine.nvim",
   config = function()
-    vim.g.lightline = {
-      colorscheme = "one",
-      active = {
-        left = {
-          { "mode", "paste" },
-          { "readonly", "filename", "modified" },
-        },
-        right = {
-          { "lineinfo" },
-          { "percent" },
-          { "filetype" },
-        },
-      },
-      component = {
-        lineinfo = "%3l:%-2c",
-      },
-    }
-  end,
+    require("vt.config.lualine")
+  end
 }

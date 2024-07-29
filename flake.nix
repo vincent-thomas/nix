@@ -1,5 +1,5 @@
 {
-  description = "Home Manager configuration of vincent";
+  description = "vtOS";
 
   inputs = {
     # Specify the source of Home Manager and Nixpkgs.
@@ -14,7 +14,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     catppuccin.url = "github:catppuccin/nix";
-    # stylix.url = "github:danth/stylix";
   };
 
   outputs = { nixpkgs, home-manager, self, catppuccin, ... }@inputs:
@@ -27,11 +26,9 @@
     in {
       nixosConfigurations.${hostname} = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
-        modules = [
-          ./nixos/configuration.nix
-          ./nixos/hardware-configuration.nix
-        ];
+        modules = [ ./nixos ];
       };
+
       homeConfigurations.${username} = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
 

@@ -1,15 +1,5 @@
 return {
   {
-    "williamboman/mason.nvim",
-    -- dependencies = {
-    --   "frostplexx/mason-bridge.nvim",
-    -- },
-    config = function()
-      require("vt.config.mason").setup()
-      -- require("mason-bridge").setup()
-    end,
-  },
-  {
     "stevearc/conform.nvim",
     event = { "BufWritePre", "BufNewFile" },
     cmd = { "ConformInfo" },
@@ -17,7 +7,6 @@ return {
       local conform = require("conform")
 
       conform.setup({
-        -- formatters_by_ft = require("mason-bridge").get_formatters(),
         format_on_save = {
           lsp_fallback = true,
           async = false,
@@ -40,7 +29,7 @@ return {
       vt_lsp.on_mount(function(ev)
         local opts = { buffer = ev.buf, silent = true }
 
-        local tb = require("telescope.builtin")
+        local tbuiltin = require("telescope.builtin")
 
         -- Definition
         vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, opts)
@@ -48,11 +37,11 @@ return {
         vim.keymap.set("n", "<leader>a", vim.lsp.buf.code_action, opts)
 
         -- Find
-        vim.keymap.set("n", "<leader>i", tb.lsp_implementations, opts)
-        vim.keymap.set("n", "<leader>R", tb.lsp_references, opts)
-        vim.keymap.set("n", "<leader>b", tb.buffers, opts)
+        vim.keymap.set("n", "<leader>i", tbuiltin.lsp_implementations, opts)
+        vim.keymap.set("n", "<leader>R", tbuiltin.lsp_references, opts)
+        vim.keymap.set("n", "<leader>b", tbuiltin.buffers, opts)
         vim.keymap.set("n", "<leader>d", vim.lsp.buf.declaration, opts)
-        vim.keymap.set("n", "<leader>e", tb.diagnostics, opts)
+        vim.keymap.set("n", "<leader>e", tbuiltin.diagnostics, opts)
       end)
     end,
   },

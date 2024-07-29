@@ -1,10 +1,11 @@
-{ pkgs, inputs, ... }:
+{ pkgs, lib, ... }:
 {
   imports = [
     ./shell.nix
     ./neovim
-    ./yazi
   ];
+
+  programs.yazi.enable = true;
 
   programs.eza = {
     enable = true;
@@ -31,12 +32,26 @@
       init = {
         defaultBranch = "main";
       };
+      gpg = {
+        format = "ssh";
+      };
+      "gpg \"ssh\"" = {
+        program = "${lib.getExe' pkgs._1password-gui "op-ssh-sign"}";
+      };
+      commit = {
+        gpgsign = true;
+      };
+
+      user = {
+        signingKey = "...";
+      };
     };
   };
 
   # GENERAL
   home.packages = with pkgs; [
     ripgrep
+    gh
   ];
 
   programs.fzf = {
@@ -46,7 +61,6 @@
 
   programs.kitty = {
     enable = true;
-    # theme = "One Dark";
     font = {
       name = "Jetbrains Mono Nerd Font";
       size = 12;

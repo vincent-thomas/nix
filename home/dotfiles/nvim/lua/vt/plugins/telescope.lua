@@ -1,21 +1,6 @@
 return {
   {
-    "nvim-telescope/telescope.nvim",
-    branch = "0.1.x",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-      "nvim-telescope/telescope-ui-select.nvim",
-    },
-    config = function()
-      local actions = require("vt.config.telescope")
-
-      vim.keymap.set("n", "<leader>g", actions.content_search, { desc = "Fuzzy find files in cwd" })
-    end,
-  },
-  {
     "ibhagwan/fzf-lua",
-    -- optional for icon support
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
       local fzf = require("fzf-lua")
@@ -30,7 +15,12 @@ return {
         })
       end
 
+      local function grep()
+        fzf.live_grep()
+      end
+
       vim.keymap.set("n", "<leader>f", find_files)
+      vim.keymap.set("n", "<leader>g", grep)
     end,
   },
 }

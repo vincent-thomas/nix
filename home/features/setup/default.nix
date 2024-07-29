@@ -3,8 +3,11 @@
 {
   imports = [./ssh.nix];
   home.file.".config/picom/picom-workaround.conf".source = ../../dotfiles/picom.conf;
-  home.file."Wallpapers".source = ../../../static/wallpapers;
-  services.picom.enable = true;
+  home.file.".vt/Wallpapers".source = ../../../static/wallpapers;
+  services.picom = {
+    enable = true;
+    extraArgs = [ "--config ~/.config/picom/picom-workaround.conf" ];
+  };
 
   home.file.".config/qtile".source = ../../dotfiles/qtile;
 
@@ -14,17 +17,10 @@
     nitrogen
     _1password
     _1password-gui
+    obsidian
+    nodejs_22
   ];
 
-  programs.btop = {
-    enable = true;
-    settings = {
-      # color_theme = "onedark";
-      theme_background = false;
-    };
-  };
-
-  programs.rofi = {
-    enable = true;
-  };
+  programs.rofi.enable = true;
+  programs.btop.enable = true;
 }

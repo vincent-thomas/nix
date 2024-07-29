@@ -1,2 +1,2 @@
-path+=('/home/vt/.vt/.scripts')
+path+=('/home/vt/.vt/scripts')
 export PATH

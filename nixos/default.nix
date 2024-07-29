@@ -38,6 +38,7 @@
       todoist
       polkit_gnome
       killall
+      fd
     ];
  };
 

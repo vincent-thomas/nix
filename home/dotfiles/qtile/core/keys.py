@@ -43,7 +43,7 @@ app_binds = [
     SpawnLaunching("e", file_manager),
     SpawnLaunching("t", terminal),
     SpawnLaunching("Return", "rofi -show drun -show-icons"),
-    SpawnLaunching("p", path.expanduser("~/.scripts/vt-powertools")),
+    SpawnLaunching("p", path.expanduser("~/.vt/scripts/vt-powertools")),
 ]
 
 keys.extend(create_app_binds(mod1, app_binds))

@@ -12,8 +12,8 @@
     nix-output-monitor
     fastfetch
     nitrogen
-    _1password
-    _1password-gui
+    unstable._1password
+    unstable._1password-gui
   ];
 
   programs.btop = {

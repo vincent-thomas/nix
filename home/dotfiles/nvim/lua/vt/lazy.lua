@@ -13,10 +13,12 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
+local plugins = require("vt.plugins")
+
 require("lazy").setup({
-  { import = "vt.plugins" },
-  { import = "vt.plugins.cmp" },
+  plugins,
 }, {
+  lockfile = "~/nix/home/dotfiles/nvim/lazy-lock.json",
   checker = {
     enabled = false,
     notify = false,

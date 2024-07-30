@@ -1,9 +1,12 @@
--- vim.opt.tabstop = 2
--- vim.opt.softtabstop = 2
+vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 vim.opt.smartindent = true
 vim.opt.wrap = false
+
+vim.opt.guicursor = ""
+
 
 vim.opt.swapfile = false
 vim.opt.backup = false
@@ -19,8 +22,11 @@ vim.g.mapleader = " "
 vim.opt.colorcolumn = "80"
 
 vim.opt.termguicolors = true
+vim.opt.nu = true
+vim.opt.rnu = true
 
-vim.cmd("set number")
+vim.opt.showmode = false
+vim.opt.clipboard = "unnamedplus"
 vim.cmd("set noshowmode")
 vim.cmd("set nocompatible")
 
@@ -33,4 +39,4 @@ vim.opt.shortmess = vim.opt.shortmess + {
 
 vim.keymap.set('', "<leader>-", vim.cmd.split)
 vim.keymap.set('', "<leader>=", vim.cmd.vsplit)
-vim.keymap.set('', "<leader>w", ":w")
+vim.keymap.set('', "<leader>w", vim.cmd.w)

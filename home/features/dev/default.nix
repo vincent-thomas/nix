@@ -42,41 +42,13 @@
     git = true;
   };
 
-  home.file.".config/zellij".source = ../../dotfiles/zellij;
-  programs.zellij = {
-    enable = true;
-  };
+  # home.file.".config/zellij".source = ../../dotfiles/zellij;
+  # programs.zellij = {
+  #   enable = true;
+  # };
   programs.zoxide.enable = true;
 
 
-  programs.git = {
-    enable = true;
-    userName = "Vincent Thomas";
-    userEmail = "77443389+vincent-thomas@users.noreply.github.com";
-    aliases = {
-      st = "status";
-      cm = "commit -m";
-      a = "add";
-    };
-    extraConfig = {
-      init = {
-        defaultBranch = "main";
-      };
-      gpg = {
-        format = "ssh";
-      };
-      "gpg \"ssh\"" = {
-        program = "${lib.getExe' pkgs._1password-gui "op-ssh-sign"}";
-      };
-      commit = {
-        gpgsign = true;
-      };
-      user = {
-        signingkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK2TanW6Iiz6qrI+BV8P3KGAfS+w/eKHBoOUiPyBFSal";
-      };
-
-    };
-  };
 
   # GENERAL
   home.packages = with pkgs; [

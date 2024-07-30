@@ -1,12 +1,17 @@
-{ pkgs, ... }:
+{ pkgs, allowed-unfree-packages, lib, ... }:
 {
   system.stateVersion = "24.05";
+
+  nixpkgs.config = {
+    allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) allowed-unfree-packages;
+  };
 
   nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+
 
   security.rtkit.enable = true;
 
@@ -49,6 +54,8 @@
     enable = true;
     enableSSHSupport = true;
   };
+  environment.systemPackages = [
+  ];
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;

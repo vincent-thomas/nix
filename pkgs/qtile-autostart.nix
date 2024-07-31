@@ -1,5 +1,5 @@
 { writeShellScriptBin }: 
 
 (writeShellScriptBin "qtile-autostart" ''
-  nitrogen --random --set-zoom-fill ~/.vt/Wallpapers
+  nitrogen --random --set-zoom-fill ~/.vt/wallpapers
 '')

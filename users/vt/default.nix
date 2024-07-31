@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ inputs, user, ... }:
 let
   catTheme = "frappe";
   catAccent = "blue";
@@ -13,9 +13,9 @@ in {
     inputs.catppuccin.homeManagerModules.catppuccin
   ];
 
-    home.stateVersion = "23.11";
-    home.username = "vt";
-    home.homeDirectory = "/home/vt";
+  home.stateVersion = "23.11";
+  home.username = user;
+  home.homeDirectory = "/home/${user}";
 
   nixpkgs.config.allowUnfree = true;
   programs.home-manager.enable = true;

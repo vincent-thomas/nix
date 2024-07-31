@@ -1,5 +1,24 @@
-{ pkgs, allowed-unfree-packages, lib, ... }:
-{
+{ pkgs, allowed-unfree-packages, lib, user, ... }:
+let 
+
+  mkUser = import ../../lib/createuser.nix { inherit pkgs; };
+
+  userConfig = mkUser {
+    username = user;
+    shell = "zsh";
+    userGroups = [ "wheel" "networkmanager" ];
+    isRoot = false;
+  };
+in userConfig // {
+
+  
+  networking = {
+    networkmanager.enable = true;
+    nameservers = [ "1.1.1.1" ];
+  };
+
+  programs.zsh.enable = true;
+
   system.stateVersion = "24.05";
 
   nixpkgs.config = {
@@ -17,16 +36,10 @@
 
   imports = [
     ./hardware.nix
-
     ./audio.nix
     ./graphics.nix
   ];
 
-  networking = {
-    hostName = "vt-pc";
-    networkmanager.enable = true;
-    nameservers = [ "1.1.1.1" ];
-  };
 
   time.timeZone = "Europe/Stockholm";
   i18n.defaultLocale = "en_US.UTF-8";
@@ -42,21 +55,11 @@
     LC_TIME = "sv_SE.UTF-8";
   };
 
-  programs.zsh.enable = true;
-  users.users.vt = {
-    isNormalUser = true;
-    description = "vincent";
-    extraGroups = [ "networkmanager" "wheel" ];
-    shell = pkgs.zsh;
- };
 
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
   };
-  environment.systemPackages = [
-  ];
-
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 

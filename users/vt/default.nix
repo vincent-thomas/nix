@@ -13,6 +13,8 @@ in {
     inputs.catppuccin.homeManagerModules.catppuccin
   ];
 
+  home.file.".vt/scripts".source = ./scripts;
+
   home.stateVersion = "23.11";
   home.username = user;
   home.homeDirectory = "/home/${user}";

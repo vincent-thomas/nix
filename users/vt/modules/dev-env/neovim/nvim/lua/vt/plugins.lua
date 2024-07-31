@@ -26,12 +26,12 @@ return {
       })
     end,
   },
-  {
-    "ggandor/leap.nvim",
-    config = function()
-      require("leap").create_default_mappings()
-    end
-  },
+  -- {
+  --   "ggandor/leap.nvim",
+  --   config = function()
+  --     require("leap").create_default_mappings()
+  --   end
+  -- },
   {
     "neovim/nvim-lspconfig",
     dependencies = {
@@ -145,5 +145,9 @@ return {
     config = function()
       require("vt.config.cmp").setup()
     end,
+  },
+  {
+    "L3MON4D3/LuaSnip",
+    version = "v2.*",
   }
 }

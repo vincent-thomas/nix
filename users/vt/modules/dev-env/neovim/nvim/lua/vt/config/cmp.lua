@@ -6,7 +6,15 @@ function M.setup()
   require("copilot_cmp").setup()
 
   cmp.setup({
-    compltion = {
+    snippet = {
+      expand = function(args)
+        require("luasnip").lsp_expand(args.body)
+      end
+    },
+    window = {
+      documentation = cmp.config.window.bordered()
+    },
+    completion = {
       completeopt = "menu,menuone,preview,noselect",
     },
     mapping = cmp.mapping.preset.insert({
@@ -15,8 +23,9 @@ function M.setup()
     }),
 
     sources = cmp.config.sources({
-      { name = "copilot" },
       { name = "nvim_lsp" },
+      { name = "luasnip" },
+      { name = "copilot" },
       { name = "buffer" },
       { name = "path" },
     }, { name = "buffer" }),

@@ -1,7 +1,7 @@
 from libqtile import  layout, hook
 from libqtile.config import Click, Drag, Match 
 from libqtile.lazy import lazy
-import os
+from os import path 
 import subprocess
 from core.keys import keys, groups
 from core.layouts import layouts
@@ -11,7 +11,8 @@ from core.configuration import mod1
 
 @hook.subscribe.startup_once
 def start_deps():
-    subprocess.Popen(["qtile-autostart"]) # packages/qtile-autostart.nix
+    to_open = path.expanduser("~/.config/qtile/autostart.sh")
+    subprocess.Popen([to_open]) # packages/qtile-autostart.nix
 
 @hook.subscribe.client_new
 def assign_to_group(client):

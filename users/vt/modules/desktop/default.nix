@@ -1,7 +1,7 @@
 { pkgs, ... }: {
   home.file.".vt/wallpapers".source = ../../wallpapers;
 
-  imports = [ ./qtile ./picom ];
+  imports = [ ./qtile ./picom ./polybar ];
 
   # home.file.".config/picom/picom-workaround.conf".source = ../../dotfiles/picom.conf;
   # services.picom = {

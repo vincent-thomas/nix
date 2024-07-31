@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, user, ... }: {
 
   # XServer
   services.xserver = {
@@ -21,7 +21,7 @@
   ];
 
   programs.thunar.enable = true;
-  users.users.vt.packages = with pkgs; [
+  users.users.${user}.packages = with pkgs; [
     localsend
     todoist-electron
     discord

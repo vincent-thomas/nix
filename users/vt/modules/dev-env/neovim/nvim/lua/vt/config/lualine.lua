@@ -16,6 +16,30 @@ local colors = {
   peach    = "#ef9f76"
 }
 
+local mode_color = {
+  n = colors.red,
+  i = colors.green,
+  v = colors.blue,
+  ['␖'] = colors.blue,
+  V = colors.blue,
+  c = colors.magenta,
+  no = colors.red,
+  s = colors.orange,
+  S = colors.orange,
+  ['␓'] = colors.orange,
+  ic = colors.yellow,
+  R = colors.violet,
+  Rv = colors.violet,
+  cv = colors.red,
+  ce = colors.red,
+  r = colors.cyan,
+  rm = colors.cyan,
+  ['r?'] = colors.cyan,
+  ['!'] = colors.red,
+  t = colors.red,
+}
+
+
 local conditions = {
   buffer_not_empty = function()
     return vim.fn.empty(vim.fn.expand('%:t')) ~= 1
@@ -73,34 +97,10 @@ ins_left {
   end,
   color = function()
     -- auto change color according to neovims mode
-    local mode_color = {
-      n = colors.red,
-      i = colors.green,
-      v = colors.blue,
-      ['␖'] = colors.blue,
-      V = colors.blue,
-      c = colors.magenta,
-      no = colors.red,
-      s = colors.orange,
-      S = colors.orange,
-      ['␓'] = colors.orange,
-      ic = colors.yellow,
-      R = colors.violet,
-      Rv = colors.violet,
-      cv = colors.red,
-      ce = colors.red,
-      r = colors.cyan,
-      rm = colors.cyan,
-      ['r?'] = colors.cyan,
-      ['!'] = colors.red,
-      t = colors.red,
-    }
     return { fg = mode_color[vim.fn.mode()] }
   end,
   padding = { right = 1 },
 }
-
-
 
 ins_left {
   'filename',
@@ -108,16 +108,14 @@ ins_left {
   color = { fg = colors.peach, gui = 'bold' },
 }
 
-ins_left {
-  -- filesize component
-  'filesize',
-  cond = conditions.buffer_not_empty,
-  color = { fg = colors.text }
-}
-
--- ins_left { 'location' }
+-- ins_left {
+--   'filesize',
+--   cond = conditions.buffer_not_empty,
+--   color = { fg = colors.text }
+-- }
 
 ins_left { 'progress', color = { fg = colors.fg, gui = 'bold' } }
+
 
 ins_left {
   'diagnostics',
@@ -130,51 +128,29 @@ ins_left {
   },
 }
 
--- Insert mid section. You can make any number of sections in neovim :)
--- for lualine it's any number greater then 2
 -- ins_left {
+--   -- Lsp server name .
 --   function()
---     return '%='
+--     local msg = ''
+--     local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
+--     local clients = vim.lsp.get_active_clients()
+--     if next(clients) == nil then
+--       return msg
+--     end
+--     for _, client in ipairs(clients) do
+--       local filetypes = client.config.filetypes
+--       if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
+--         return '  ' .. client.name
+--       end
+--     end
+--     return msg
 --   end,
+--   color = { fg = colors.text --[[ , gui = 'bold'  ]] },
+--   padding = { left = 2 }
 -- }
-
-ins_left {
-  -- Lsp server name .
-  function()
-    local msg = ''
-    local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
-    local clients = vim.lsp.get_active_clients()
-    if next(clients) == nil then
-      return msg
-    end
-    for _, client in ipairs(clients) do
-      local filetypes = client.config.filetypes
-      if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
-        return '  ' .. client.name
-      end
-    end
-    return msg
-  end,
-  color = { fg = colors.text --[[ , gui = 'bold'  ]] },
-  padding = { left = 2 }
-}
-
-ins_right {
-  'fileformat',
-  fmt = string.upper,
-  icons_enabled = true, -- I think icons are cool but Eviline doesn't have them. sigh
-  color = { fg = colors.green, gui = 'bold' },
-}
-
-ins_right {
-  'branch',
-  icon = '',
-  color = { fg = colors.violet, gui = 'bold' },
-}
 
 ins_right {
   'diff',
-  -- Is it me or the symbol for modified us really weird
   symbols = { added = ' ', modified = '󰝤 ', removed = ' ' },
   diff_color = {
     added = { fg = colors.green },
@@ -186,10 +162,28 @@ ins_right {
 }
 
 ins_right {
+  'fileformat',
+  fmt = string.upper,
+  icons_enabled = true, -- I think icons are cool but Eviline doesn't have them. sigh
+  cond = conditions.buffer_not_empty,
+  color = { fg = colors.green, gui = 'bold' },
+}
+
+ins_right {
+  'branch',
+  icon = '',
+  color = { fg = colors.violet, gui = 'bold' },
+}
+
+ins_right {
   function()
     return '▊'
   end,
-  color = { fg = colors.red },
+  color = function()
+    return { fg = mode_color[vim.fn.mode()] }
+  end,
+
+  -- color = { fg = colors.red },
   padding = { left = 1 },
 }
 

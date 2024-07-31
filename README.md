@@ -1,3 +1,3 @@
-# vtOS
+# vtOS 
 
-**NOTE**: neovims lazylock files path is hardcoded.
+**NOTE**: neovims lazylock files path is hardcoded. 

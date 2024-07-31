@@ -1,6 +1,3 @@
-
-
-
 {
   description = "vtOS";
   inputs = {
@@ -15,11 +12,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     catppuccin.url = "github:catppuccin/nix";
-
-
   };
 
-  outputs = { nixpkgs, home-manager, ... }@inputs:
+  outputs = { nixpkgs, ... }@inputs:
     let
       allowed-unfree-packages = [
         "google-chrome"

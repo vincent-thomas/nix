@@ -24,7 +24,7 @@ in nixpkgs.lib.nixosSystem {
       home-manager.useUserPackages = true;
       home-manager.users.${user} = import ../users/${user};
       home-manager.extraSpecialArgs = { inherit inputs user allowed-unfree-packages; };
-      home-manager.backupFileExtension = "backup";
+      home-manager.backupFileExtension = "backup2";
     }
   ];
 }

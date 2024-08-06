@@ -37,7 +37,7 @@
   programs._1password.enable = true;
   programs.ssh.extraConfig = ''
     Host *
-        IdentityAgent "~/.1passord/agent.sock
+        IdentityAgent "~/.1passord/agent.sock"
   '';
 
   programs._1password-gui = {

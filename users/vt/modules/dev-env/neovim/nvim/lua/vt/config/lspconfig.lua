@@ -4,9 +4,10 @@ local nvim_cmp_nvim_lsp = require("cmp_nvim_lsp")
 local function keybinds(ev)
   local opts = { buffer = ev.buf, silent = true }
   vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, opts)
-  vim.keymap.set("n", "<leader>h", vim.lsp.buf.hover, opts)
-  vim.keymap.set("n", "<leader>D", vim.lsp.buf.declaration, opts)
-  vim.keymap.set("n", "<leader>d", vim.lsp.buf.definition, opts)
+  -- 'K' finns redan
+  -- vim.keymap.set("n", "<leader>h", vim.lsp.buf.hover, opts)
+  vim.keymap.set("n", "gd", vim.lsp.buf.declaration, opts)
+  vim.keymap.set("n", "gD", vim.lsp.buf.definition, opts)
 end
 
 local M = {}

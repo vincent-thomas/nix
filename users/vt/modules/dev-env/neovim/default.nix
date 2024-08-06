@@ -4,8 +4,10 @@
     enable = true;
     defaultEditor = true;
     extraPackages = with pkgs; [
+
       # Rust
       rust-analyzer
+      rustfmt
       clippy
 
       # Lua

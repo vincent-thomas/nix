@@ -26,12 +26,6 @@ return {
       })
     end,
   },
-  -- {
-  --   "ggandor/leap.nvim",
-  --   config = function()
-  --     require("leap").create_default_mappings()
-  --   end
-  -- },
   {
     "neovim/nvim-lspconfig",
     dependencies = {
@@ -45,14 +39,14 @@ return {
     "nvim-lualine/lualine.nvim",
     config = function()
       require("vt.config.lualine").setup()
-    end
+    end,
   },
   {
     "epwalsh/obsidian.nvim",
     version = "*",
     lazy = true,
     event = {
-      "BufReadPre " .. vim.fn.expand "~" .. "/Obsidian/VT/**.md",
+      "BufReadPre " .. vim.fn.expand("~") .. "/Obsidian/VT/**.md",
     },
     dependencies = {
       "nvim-lua/plenary.nvim",
@@ -99,28 +93,28 @@ return {
     priority = 1000,
     config = function()
       require("catppuccin").setup({
-        flavour = "frappe"
+        flavour = "frappe",
       })
       vim.cmd("colorscheme catppuccin")
     end,
   },
-  {
-    "folke/todo-comments.nvim",
-    dependencies = { "nvim-lua/plenary.nvim" },
-    config = function()
-      require("todo-comments").setup({})
-    end,
-  },
+  -- {
+  --   "folke/todo-comments.nvim",
+  --   dependencies = { "nvim-lua/plenary.nvim" },
+  --   config = function()
+  --     require("todo-comments").setup({})
+  --   end,
+  -- },
   {
     "numToStr/Comment.nvim",
     opts = {
       padding = true,
       toggler = {
         line = "gl",
-        block = "gb"
-      }
+        block = "gb",
+      },
     },
-    lazy = false
+    lazy = false,
   },
 
   -- Copilot cmp injenction
@@ -131,9 +125,13 @@ return {
     config = function()
       require("copilot").setup({
         suggestion = { enabled = false },
-        panel = { enabled = false }
+        panel = { enabled = false },
       })
     end,
+  },
+  {
+    "L3MON4D3/LuaSnip",
+    version = "v2.*",
   },
   {
     "hrsh7th/nvim-cmp",
@@ -147,7 +145,11 @@ return {
     end,
   },
   {
-    "L3MON4D3/LuaSnip",
-    version = "v2.*",
-  }
+    "stevearc/conform.nvim",
+    event = { "BufWritePre" },
+    cmd = { "ConformInfo" },
+    config = function()
+      require("vt.config.conform").setup()
+    end,
+  },
 }

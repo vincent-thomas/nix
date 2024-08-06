@@ -1,24 +1,19 @@
-{ pkgs, inputs, nixpkgs, lib, ... }:
+{ inputs, user, ... }:
 let
   exts = inputs.firefox-addons.packages."x86_64-linux";
 in {
 
-
   programs.firefox = {
     enable = true;
-    profiles.vincent = {
-      search = {
-        default = "DuckDuckGo";
-      };
-      bookmarks = {};
+    profiles.${user} = {
       userChrome = builtins.readFile ./userChrome.css;
       extensions = with exts; [
         ublock-origin
         sponsorblock
         darkreader
-        tab-stash
-        # onepassword-password-manager
+        multi-account-containers
       ];
+
       settings = {
         "browser.startup.homepage" = "about:home";
         "browser.uitour.enabled" = false;

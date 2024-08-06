@@ -3,6 +3,7 @@
 # to /etc/nixos/configuration.nix instead.
 { config, lib, modulesPath, ... }:
 
+
 {
   imports =
     [ (modulesPath + "/installer/scan/not-detected.nix")
@@ -10,7 +11,6 @@
 
   boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
@@ -35,5 +35,21 @@
   # networking.interfaces.wlp4s0.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+
+  hardware.nvidia = {
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
+    modesetting.enable = true;
+
+    # Don't change this.
+    powerManagement.enable = false;
+
+    # Don't run this.
+    powerManagement.finegrained = false;
+
+    # This is buggy
+    open = false;
+
+    nvidiaSettings = true;
+  };
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }

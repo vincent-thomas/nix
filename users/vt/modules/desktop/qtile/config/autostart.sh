@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
-picom --config .config/picom/picom-workaround.conf &
+picom &
 nitrogen --random --set-zoom-fill ~/.vt/wallpapers &
+1password --hidden &
 polybar &
+nm-applet &

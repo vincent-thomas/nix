@@ -12,6 +12,7 @@
     sessionVariables = {
       HOME_MNGR_DIR = "$HOME/nix";
     };
+    dotDir = ".config/zsh";
 
     shellAliases = {
       v = "nvim";

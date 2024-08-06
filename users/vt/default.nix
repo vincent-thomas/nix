@@ -7,6 +7,8 @@ in {
     ./modules/desktop
     ./modules/other-apps
     ./modules/dev-env
+    ./modules/x11-init
+    ./modules/shell
     ./git.nix
     ./terminal.nix
     ./misc.nix

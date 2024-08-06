@@ -1,3 +1,3 @@
 {
-  imports = [ ./firefox ./1password ];
+  imports = [ ./firefox ];
 }

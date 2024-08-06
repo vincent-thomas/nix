@@ -1,6 +1,6 @@
 { pkgs, ... }: {
 
-  imports = [ ./neovim ./zsh ./starship ./zellij ];
+  imports = [ ./neovim ./starship ./zellij ];
 
   # home.file.".config/zellij".source = ../../dotfiles/zellij;
   # programs.zellij = {
@@ -11,6 +11,8 @@
   home.packages = with pkgs; [
     ripgrep
     gh
+
+    rustc
   ];
 
   programs.fzf = {

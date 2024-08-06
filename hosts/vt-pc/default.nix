@@ -38,6 +38,7 @@ in userConfig // {
     ./hardware.nix
     ./audio.nix
     ./graphics.nix
+    ./autostart.nix
   ];
 
 

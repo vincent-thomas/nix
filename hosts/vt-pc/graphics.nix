@@ -1,6 +1,6 @@
 { pkgs, user, ... }: {
 
-
+  hardware.opengl.enable = true;
 
   # XServer
   services.xserver = {
@@ -9,7 +9,7 @@
       layout = "us";
       variant = "";
     };
- 
+
     displayManager.gdm.enable = true;
     windowManager.qtile.enable = true;
   };

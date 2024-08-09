@@ -3,35 +3,61 @@ let
   catTheme = "frappe";
   catAccent = "blue";
 in {
+  home.stateVersion = "23.11";
+  programs.home-manager.enable = true;
+
+  home.username = user;
+  home.homeDirectory = "/home/${user}";
+  home.sessionPath = [
+    "$HOME/.nix-profile/bin" # binaries
+    "$HOME/.nix-profile/share/applications" # .desktop files
+  ];
+
+  nixpkgs.config.allowUnfree = true;
+
   imports = [
     ./modules/desktop
-    ./modules/other-apps
-    ./modules/dev-env
     ./modules/x11-init
-    ./modules/shell
     ./git.nix
-    ./terminal.nix
     ./misc.nix
+
+    ../../modules/home
     inputs.catppuccin.homeManagerModules.catppuccin
   ];
 
-  home.file.".vt/scripts".source = ./scripts;
+  vt.dot.wallpapers = true;
+  vt.dot.scripts = true;
+  vt.dot.zshIntegration = true;
 
-  home.stateVersion = "23.11";
-  home.username = user;
-  home.homeDirectory = "/home/${user}";
+  vt.kitty.enable = true;
+  vt.spotifyd.enable = true;
 
-  nixpkgs.config.allowUnfree = true;
-  programs.home-manager.enable = true;
-   home.sessionPath = [
-    "$HOME/.nix-profile/bin" #binaries
-    "$HOME/.nix-profile/share/applications" #.desktop files
-  ];
+  vt.starship.enable = true;
+  vt.zsh = {
+    enable = true;
+    starshipIntegration = true;
+  };
+  vt.cliTools.enable = true;
+  vt.cliTools.zshIntegration = true;
 
- catppuccin = {
+  vt.nvim = {
+    enable = true;
+    defaultEditor = true;
+  };
+  vt.zellij.enable = true;
+
+  vt.picom.enable = true;
+  vt.qtile.config.enable = true;
+
+  vt.firefox.enable = true;
+
+  catppuccin = {
     enable = true;
     flavor = catTheme;
     accent = catAccent;
   };
+
+  programs.imv.enable = true;
+
   xdg.userDirs.desktop = null;
 }

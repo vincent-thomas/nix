@@ -16,13 +16,7 @@
 
   outputs = { nixpkgs, ... }@inputs:
     let
-      allowed-unfree-packages = [
-        "google-chrome"
-        "obsidian"
-        "postman"
-        "vscode"
-        "vscode-extension-github-copilot"
-      ];
+      allowed-unfree-packages = [ "obsidian" ];
 
       mkSystem = import ./lib/mksystem.nix {
         inherit nixpkgs inputs allowed-unfree-packages;

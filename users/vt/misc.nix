@@ -4,11 +4,7 @@
     enableZshIntegration = true;
   };
 
-  home.packages = with pkgs; [
-    nix-output-monitor
-    fastfetch
-    obsidian
-  ];
+  home.packages = with pkgs; [ nix-output-monitor nerdfetch obsidian ];
 
   programs.btop.enable = true;
 }

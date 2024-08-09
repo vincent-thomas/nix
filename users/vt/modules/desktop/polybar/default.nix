@@ -1,28 +1,19 @@
 { pkgs, lib, ... }: {
-
-  # home.file.".config/polybar".source = ./config;
   services.polybar = {
     catppuccin.enable = false;
     enable = true;
     script = "polybar";
-    config = {};
     extraConfig = ''
       ${builtins.readFile ./config/colors.ini}
       ${builtins.readFile ./config/modules.ini}
       ${builtins.readFile ./config/config.ini}
     '';
-    package = pkgs.polybar.override {
-      alsaSupport = true;
-    };
+    package = pkgs.polybar.override { alsaSupport = true; };
   };
 
   systemd.user.services.polybar = lib.mkDefault {
-    Unit = {
-      Description = "Launch polybar";
-    };
-    Install = {
-      WantedBy = [ "multi-user.target" ];
-    };
+    Unit = { Description = "Launch polybar"; };
+    Install = { WantedBy = [ "multi-user.target" ]; };
     Service = {
       ExecStart = "${pkgs.polybar}/bin/polybar";
       Restart = "always";

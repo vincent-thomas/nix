@@ -18,7 +18,7 @@ local plugins = require("vt.plugins")
 require("lazy").setup({
   plugins,
 }, {
-  lockfile = "~/nix/users/vt/modules/dev-env/neovim/nvim/lazy-lock.json",
+  lockfile = "~/nix/modules/home/dev/neovim/nvim/lazy-lock.json",
   checker = {
     enabled = false,
     notify = false,

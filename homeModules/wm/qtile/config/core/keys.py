@@ -52,7 +52,6 @@ groups = [
     GroupBuilder(key = "z", name = "term", layout = "monadtall"),
     GroupBuilder(key = "x", name = "tv", layout ="monadtall"),
     GroupBuilder(key = "c", name ="www", layout = "monadtall"),
-    GroupBuilder(key = "v", name = "music",layout = "monadtall"),
 ]
 
 

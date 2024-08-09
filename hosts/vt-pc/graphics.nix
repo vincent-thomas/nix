@@ -11,11 +11,8 @@
     };
 
     windowManager.qtile.enable = true;
+    displayManager.gdm.enable = true;
   };
-
-  services.displayManager.sddm.enable = true;
-  services.displayManager.sddm.package = pkgs.kdePackages.sddm;
-  services.displayManager.sddm.catppuccin.enable = true;
 
   xdg.portal.enable = true;
   xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];

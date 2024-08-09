@@ -15,7 +15,7 @@
       fadeDelta = 3;
 
       inactiveOpacity = 0.8;
-      activeOpacity = 1.0;
+      activeOpacity = 0.9;
 
       settings = {
         blur = {

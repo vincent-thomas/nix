@@ -21,10 +21,12 @@
       mkSystem = import ./lib/mksystem.nix {
         inherit nixpkgs inputs allowed-unfree-packages;
       };
+
+      user = "vt";
     in {
-      nixosConfigurations.vt-pc = mkSystem "vt-pc" {
+      nixosConfigurations.vt-pc = mkSystem "${user}-pc" {
         system = "x86_64-linux";
-        user = "vt";
+        user = user;
       };
     };
 }

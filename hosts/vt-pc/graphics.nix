@@ -1,6 +1,6 @@
 { pkgs, user, ... }: {
 
-  hardware.opengl.enable = true;
+  hardware.graphics.enable = true;
 
   # XServer
   services.xserver = {

@@ -10,9 +10,12 @@
       variant = "";
     };
 
-    displayManager.gdm.enable = true;
     windowManager.qtile.enable = true;
   };
+
+  services.displayManager.sddm.enable = true;
+  services.displayManager.sddm.package = pkgs.kdePackages.sddm;
+  services.displayManager.sddm.catppuccin.enable = true;
 
   xdg.portal.enable = true;
   xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];

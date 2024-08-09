@@ -1,17 +1,19 @@
 { pkgs, allowed-unfree-packages, lib, user, ... }:
-let 
+let
 
   mkUser = import ../../lib/createuser.nix { inherit pkgs; };
 
   userConfig = mkUser {
     username = user;
     shell = "zsh";
-    userGroups = [ "wheel" "networkmanager" ];
+    userGroups = [ "wheel" "networkmanager" "libvirtd" ];
     isRoot = false;
   };
 in userConfig // {
 
-  
+  programs.virt-manager.enable = true;
+  virtualisation.libvirtd.enable = true;
+
   networking = {
     networkmanager.enable = true;
     nameservers = [ "1.1.1.1" ];
@@ -22,7 +24,8 @@ in userConfig // {
   system.stateVersion = "24.05";
 
   nixpkgs.config = {
-    allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) allowed-unfree-packages;
+    allowUnfreePredicate = pkg:
+      builtins.elem (lib.getName pkg) allowed-unfree-packages;
   };
 
   nixpkgs.config.allowUnfree = true;
@@ -31,16 +34,16 @@ in userConfig // {
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-
   security.rtkit.enable = true;
 
-  imports = [
-    ./hardware.nix
-    ./audio.nix
-    ./graphics.nix
-    ./autostart.nix
-  ];
+  vt.services.polkit.enable = true;
+  vt.xserver = {
+    enable = true;
+    gdm = true;
+    qtile = true;
+  };
 
+  imports = [ ./hardware.nix ./audio.nix ./graphics.nix ];
 
   time.timeZone = "Europe/Stockholm";
   i18n.defaultLocale = "en_US.UTF-8";
@@ -56,7 +59,6 @@ in userConfig // {
     LC_TIME = "sv_SE.UTF-8";
   };
 
-
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
@@ -64,10 +66,9 @@ in userConfig // {
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
+  #  services.printing.enable = true;
 
- #  services.printing.enable = true;
-
- # Some programs need SUID wrappers, can be configured further or are
+  # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
 

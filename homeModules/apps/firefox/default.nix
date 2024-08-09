@@ -14,6 +14,7 @@ in {
           sponsorblock
           darkreader
           multi-account-containers
+          firefox-color
         ];
 
         settings = {

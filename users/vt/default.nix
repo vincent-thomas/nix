@@ -3,6 +3,13 @@
 
   imports = [ ./modules/desktop ./modules/x11-init ./git.nix ./misc.nix ];
 
+  dconf.settings = {
+    "org/virt-manager/virt-manager/connections" = {
+      autoconnect = [ "qemu:///system" ];
+      uris = [ "qemu:///system" ];
+    };
+  };
+
   # General
   vt.dot.wallpapers = true;
   vt.dot.scripts = true;

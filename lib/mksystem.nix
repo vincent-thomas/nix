@@ -4,7 +4,6 @@ hostname:
 { system, user, }:
 
 let
-
   homeManagerModule = inputs.home-manager.nixosModules.home-manager;
   catppuccin = {
     nixos = inputs.catppuccin.nixosModules.catppuccin;
@@ -20,6 +19,14 @@ in nixpkgs.lib.nixosSystem {
     ../nixosModules
     catppuccin.nixos
     homeManagerModule
+    ({ pkgs, ... }:
+      let createUser = import ./createuser.nix { inherit pkgs; };
+      in createUser {
+        username = user;
+        shell = "zsh";
+        userGroups = [ "wheel" "networkmanager" "libvirtd" ];
+        isRoot = false;
+      })
     {
       networking.hostName = hostname;
 

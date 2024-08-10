@@ -1,15 +1,6 @@
-{ pkgs, allowed-unfree-packages, lib, user, ... }:
+{ allowed-unfree-packages, lib, ... }:
 let
-
-  mkUser = import ../../lib/createuser.nix { inherit pkgs; };
-
-  userConfig = mkUser {
-    username = user;
-    shell = "zsh";
-    userGroups = [ "wheel" "networkmanager" "libvirtd" ];
-    isRoot = false;
-  };
-in userConfig // {
+in {
 
   programs.virt-manager.enable = true;
   virtualisation.libvirtd.enable = true;
@@ -41,6 +32,7 @@ in userConfig // {
     enable = true;
     gdm = true;
     qtile = true;
+    nvidiaDrivers = true;
   };
 
   imports = [ ./hardware.nix ./audio.nix ./graphics.nix ];
@@ -66,11 +58,13 @@ in userConfig // {
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
+  security.doas.enable = true;
+
   #  services.printing.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
-  # programs.mtr.enable = true;
+  programs.mtr.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

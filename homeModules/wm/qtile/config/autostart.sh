@@ -4,4 +4,4 @@ nitrogen --random --set-zoom-fill ~/.vt/wallpapers &
 1password --hidden &
 polybar &
 nm-applet &
-volumeicon &
+pasystray &

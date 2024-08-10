@@ -1,7 +1,7 @@
 { ... }: {
   home.stateVersion = "23.11";
 
-  imports = [ ./modules/desktop ./modules/x11-init ./git.nix ./misc.nix ];
+  imports = [ ./modules/desktop ./monitor-setup.nix ./git.nix ./misc.nix ];
 
   dconf.settings = {
     "org/virt-manager/virt-manager/connections" = {

@@ -16,18 +16,13 @@
 
     pcmanfm
     networkmanagerapplet
+    davinci-resolve
   ];
 
-  vt.apps.onepassword = { enable = true; };
-
-  # programs._1password.enable = true;
-  # programs.ssh.extraConfig = ''
-  #   Host *
-  #       IdentityAgent "~/.1passord/agent.sock"
-  # '';
-
-  programs._1password-gui = {
+  vt.apps.onepassword = {
     enable = true;
-    polkitPolicyOwners = [ user ];
+    username = user;
+    zshOpPlugins.gh = true;
+    zshOpPlugins.cargo = true;
   };
 }

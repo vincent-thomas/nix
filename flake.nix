@@ -17,6 +17,8 @@
       url = "github:nix-community/nixos-generators";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    ags.url = "github:Aylur/ags";
   };
 
   outputs = { nixpkgs, nixos-generators, ... }@inputs:

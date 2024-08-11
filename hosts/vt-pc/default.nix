@@ -1,6 +1,4 @@
-{ allowed-unfree-packages, lib, ... }:
-let
-in {
+{ allowed-unfree-packages, lib, ... }: {
 
   programs.virt-manager.enable = true;
   virtualisation.libvirtd.enable = true;
@@ -35,6 +33,8 @@ in {
     nvidiaDrivers = true;
   };
 
+  programs.hyprland.enable = true;
+
   imports = [ ./hardware.nix ./audio.nix ./graphics.nix ];
 
   time.timeZone = "Europe/Stockholm";
@@ -57,14 +57,10 @@ in {
   };
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
-
-  security.doas.enable = true;
-
   #  services.printing.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
-  programs.mtr.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

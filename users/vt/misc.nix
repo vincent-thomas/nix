@@ -1,11 +1,14 @@
 { pkgs, ... }: {
   # TODO:
-  programs.zoxide = {
-    enable = true;
-    enableZshIntegration = true;
-  };
 
-  home.packages = with pkgs; [ nix-output-monitor nerdfetch obsidian pasystray cargo gcc ];
+  home.packages = with pkgs; [
+    nix-output-monitor
+    nerdfetch
+    obsidian
+    cargo
+    gcc
+    wl-clipboard
+  ];
 
   programs.btop.enable = true;
 }

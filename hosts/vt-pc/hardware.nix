@@ -47,7 +47,7 @@
     # This is buggy
     open = false;
 
-    nvidiaSettings = true;
+    nvidiaSettings = false;
   };
   hardware.cpu.amd.updateMicrocode =
     lib.mkDefault config.hardware.enableRedistributableFirmware;

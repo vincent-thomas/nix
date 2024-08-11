@@ -12,7 +12,6 @@
     localsend
     todoist-electron
     discord
-    steam
 
     pcmanfm
     networkmanagerapplet

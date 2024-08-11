@@ -1,7 +1,13 @@
-{ ... }: {
+{ inputs, ... }: {
   home.stateVersion = "23.11";
 
-  imports = [ ./modules/desktop ./monitor-setup.nix ./git.nix ./misc.nix ];
+  imports = [
+    ./modules/desktop
+    ./monitor-setup.nix
+    ./git.nix
+    ./misc.nix
+    inputs.ags.homeManagerModules.default
+  ];
 
   dconf.settings = {
     "org/virt-manager/virt-manager/connections" = {
@@ -15,6 +21,8 @@
   vt.dot.scripts = true;
   vt.dot.zshIntegration = true;
 
+  vt.wm.hyprland.enable = true;
+
   # Terminal / Shell
   vt.kitty.enable = true;
 
@@ -22,6 +30,8 @@
   vt.zsh = {
     enable = true;
     starshipIntegration = true;
+    zoxideIntegration = true;
+    nvimAlias = true;
   };
 
   vt.cliTools.enable = true;

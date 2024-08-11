@@ -4,9 +4,9 @@
     vt.spotifyd.enable = lib.mkEnableOption "Enables spotify daemon";
   };
 
-  config = lib.mkIf config.vt.spotifyd.enable {
+  config = {
     services.spotifyd = {
-      enable = true;
+      enable = config.vt.spotifyd.enable;
       settings = {
         global = {
           device_name = "VT";

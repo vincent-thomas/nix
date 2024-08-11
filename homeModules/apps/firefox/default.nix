@@ -1,4 +1,4 @@
-{ inputs, user, lib, config, ... }:
+{ inputs, user, lib, config, pkgs, ... }:
 let exts = inputs.firefox-addons.packages."x86_64-linux";
 in {
 
@@ -17,6 +17,24 @@ in {
           firefox-color
         ];
 
+        search = {
+          force = true;
+          default = "DuckDuckGo";
+          engines = {
+            "My nixOS" = {
+              urls = [{
+                template = "https://mynixos.com/search";
+                params = [{
+                  name = "q";
+                  value = "{searchTerms}";
+                }];
+              }];
+              icon =
+                "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+              definedAliases = [ "@mn" ];
+            };
+          };
+        };
         settings = {
           "browser.startup.homepage" = "about:home";
           "browser.uitour.enabled" = false;

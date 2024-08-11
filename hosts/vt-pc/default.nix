@@ -5,7 +5,7 @@
 
   networking = {
     networkmanager.enable = true;
-    nameservers = [ "1.1.1.1" ];
+    nameservers = [ "9.9.9.9" ];
   };
 
   programs.zsh.enable = true;
@@ -38,7 +38,7 @@
   imports = [ ./hardware.nix ./audio.nix ./graphics.nix ];
 
   time.timeZone = "Europe/Stockholm";
-  i18n.defaultLocale = "en_US.UTF-8";
+  i18n.defaultLocale = "sv_SE.UTF-8";
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "sv_SE.UTF-8";
     LC_IDENTIFICATION = "sv_SE.UTF-8";
@@ -58,13 +58,4 @@
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
   #  services.printing.enable = true;
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
 }

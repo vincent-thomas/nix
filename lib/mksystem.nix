@@ -16,6 +16,7 @@ in nixpkgs.lib.nixosSystem {
   specialArgs = { inherit inputs user allowed-unfree-packages; };
   modules = [
     ../hosts/${hostname}
+    ../hosts/base.nix
     ../nixosModules
     catppuccin.nixos
     homeManagerModule

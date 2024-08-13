@@ -16,6 +16,9 @@
     };
   };
 
+  services.blueman-applet.enable = true;
+
+
   # General
   vt.dot.wallpapers = true;
   vt.dot.scripts = true;

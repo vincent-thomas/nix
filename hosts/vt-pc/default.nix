@@ -12,10 +12,13 @@
 
   system.stateVersion = "24.05";
 
+  hardware.bluetooth.enable = true;
+
   nixpkgs.config = {
     allowUnfreePredicate = pkg:
       builtins.elem (lib.getName pkg) allowed-unfree-packages;
   };
+  services.blueman.enable = true;
 
   nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -38,7 +41,7 @@
   imports = [ ./hardware.nix ./audio.nix ./graphics.nix ];
 
   time.timeZone = "Europe/Stockholm";
-  i18n.defaultLocale = "sv_SE.UTF-8";
+  i18n.defaultLocale = "en_GB.UTF-8";
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "sv_SE.UTF-8";
     LC_IDENTIFICATION = "sv_SE.UTF-8";

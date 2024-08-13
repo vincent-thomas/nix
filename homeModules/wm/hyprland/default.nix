@@ -9,13 +9,18 @@
       extraConfig = builtins.readFile ./hyprland.conf;
     };
 
-    home.packages =
-      lib.mkIf config.vt.wm.hyprland.enable [ pkgs.wpaperd pkgs.waybar pkgs.pavucontrol ];
+    home.packages = lib.mkIf config.vt.wm.hyprland.enable [
+      pkgs.wpaperd
+      pkgs.waybar
+      pkgs.pavucontrol
+    ];
 
-    programs.ags = {
-      enable = true;
-      configDir = ./ags;
-    };
+    programs.fuzzel.enable = true;
+
+    # programs.ags = {
+    #   enable = true;
+    #   configDir = ./ags;
+    # };
 
     home.file.".config/wpaperd/config.toml".text = ''
       [any]

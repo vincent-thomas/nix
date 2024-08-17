@@ -17,6 +17,8 @@ in {
           darkreader
           multi-account-containers
           firefox-color
+          facebook-container
+          clearurls
         ];
 
         search = {

@@ -24,6 +24,12 @@
     programs.starship.enableZshIntegration = config.vt.zsh.starshipIntegration;
 
     home.packages = with pkgs; [ nerdfetch ];
+
+    programs.direnv = {
+      enable = true;
+      enableZshIntegration = true;
+    };
+
     programs.zsh = {
       enable = true;
       sessionVariables = { HOME_MNGR_DIR = "$HOME/nix"; };

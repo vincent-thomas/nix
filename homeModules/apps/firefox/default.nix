@@ -9,6 +9,8 @@ in {
       enable = true;
       profiles.${user} = {
         userChrome = builtins.readFile ./userChrome.css;
+        extraConfig = builtins.readFile ./user.js;
+
         extensions = with exts; [
           ublock-origin
           sponsorblock
